@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Thymeleaf</title>
+</head>
+<body>
+<div th:fragment="header">
+    <h1>Thymeleaf</h1>
+    <a href="/user" th:href="@{~/user}">首页</a>
+</div>
+</body>
+</html>

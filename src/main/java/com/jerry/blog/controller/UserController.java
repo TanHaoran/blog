@@ -65,14 +65,14 @@ public class UserController {
     }
 
     /**
-     * 新建用户
+     * 保存或修改用户
      * @param user
      * @return
      */
     @PostMapping
-    public ModelAndView create(User user) {
-        user = userRepository.saveOrUpdateUser(user);
-        return new ModelAndView("redirect:/users");
+    public ModelAndView saveOrUpdateUser(User user) {
+        userRepository.saveOrUpdateUser(user);
+        return new ModelAndView("redirect:/user");
     }
 
     /**
@@ -84,7 +84,7 @@ public class UserController {
     @GetMapping(value = "delete/{id}")
     public ModelAndView delete(@PathVariable("id") Long id, Model model) {
         userRepository.deleteUser(id);
-        return new ModelAndView("redirect:/users");
+        return new ModelAndView("redirect:/user");
     }
 
     /**
