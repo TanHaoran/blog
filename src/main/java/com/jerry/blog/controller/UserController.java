@@ -31,7 +31,7 @@ public class UserController {
      */
     @GetMapping()
     public ModelAndView list(Model model) {
-        model.addAttribute("userList", userRepository.listUser());
+        model.addAttribute("userList", userRepository.findAll());
         model.addAttribute("title", "用户管理");
         return new ModelAndView("user/list", "userModel", model);
     }
@@ -45,7 +45,7 @@ public class UserController {
      */
     @GetMapping("{id}")
     public ModelAndView view(@PathVariable("id") Long id, Model model) {
-        User user = userRepository.getUserById(id);
+        User user = userRepository.findOne(id);
         model.addAttribute("user", user);
         model.addAttribute("title", "查看用户");
         return new ModelAndView("user/view", "userModel", model);
@@ -59,43 +59,46 @@ public class UserController {
      */
     @GetMapping("/form")
     public ModelAndView createForm(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new User(null, null, null));
         model.addAttribute("title", "创建用户");
         return new ModelAndView("user/form", "userModel", model);
     }
 
     /**
      * 保存或修改用户
+     *
      * @param user
      * @return
      */
     @PostMapping
     public ModelAndView saveOrUpdateUser(User user) {
-        userRepository.saveOrUpdateUser(user);
+        userRepository.save(user);
         return new ModelAndView("redirect:/user");
     }
 
     /**
      * 删除用户
+     *
      * @param id
      * @param model
      * @return
      */
     @GetMapping(value = "delete/{id}")
     public ModelAndView delete(@PathVariable("id") Long id, Model model) {
-        userRepository.deleteUser(id);
+        userRepository.delete(id);
         return new ModelAndView("redirect:/user");
     }
 
     /**
      * 获取修改用户的界面
+     *
      * @param id
      * @param model
      * @return
      */
     @GetMapping(value = "modify/{id}")
     public ModelAndView modifyForm(@PathVariable("id") Long id, Model model) {
-        User user = userRepository.getUserById(id);
+        User user = userRepository.findOne(id);
         model.addAttribute("user", user);
         model.addAttribute("title", "修改用户");
         return new ModelAndView("user/form", "userModel", model);
