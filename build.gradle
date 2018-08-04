@@ -6,7 +6,7 @@ buildscript {
     ext['thymeleaf-layout-dialect.version'] = '2.1.1'
 
     // 自定义Hibernate版本
-    ext['hibernate.version']='5.2.8.Final'
+    ext['hibernate.version'] = '5.2.8.Final'
 
     repositories {
         mavenCentral()
@@ -43,6 +43,9 @@ dependencies {
 
     // MySQL连接驱动依赖
     compile('mysql:mysql-connector-java:6.0.5')
+
+    // 添加H2的依赖
+    runtime('com.h2database:h2:1.4.193')
 
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
