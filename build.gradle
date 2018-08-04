@@ -4,6 +4,10 @@ buildscript {
     }
     ext['thymeleaf.version'] = '3.0.3.RELEASE'
     ext['thymeleaf-layout-dialect.version'] = '2.1.1'
+
+    // 自定义Hibernate版本
+    ext['hibernate.version']='5.2.8.Final'
+
     repositories {
         mavenCentral()
         maven { url "https://repo.spring.io/snapshot" }
@@ -33,5 +37,12 @@ dependencies {
     compile('org.springframework.boot:spring-boot-starter-web')
     compile('org.springframework.boot:spring-boot-starter-thymeleaf')
     compile "org.projectlombok:lombok:1.12.6"
+
+    // Spring Data JPA依赖
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    // MySQL连接驱动依赖
+    compile('mysql:mysql-connector-java:6.0.5')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
