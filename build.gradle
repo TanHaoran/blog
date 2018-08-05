@@ -47,5 +47,11 @@ dependencies {
     // 添加H2的依赖
     runtime('com.h2database:h2:1.4.193')
 
+    // 添加ElasticSearch的依赖
+    compile('org.springframework.boot:spring-boot-starter-data-elasticsearch')
+
+    // 添加JNA的依赖
+    compile('net.java.dev.jna:jna:4.3.0')
+
     testCompile('org.springframework.boot:spring-boot-starter-test')
 }
