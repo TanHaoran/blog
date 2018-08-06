@@ -1,15 +1,21 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Thymeleaf</title>
 </head>
 <body>
 
-<div th:fragment="footer">
-    <a href="https://www.baidu.com">Welcome</a>
-</div>
+<footer class="blog-footer bg-inverse" data-th-fragment="footer">
+
+    <div class="container">
+        <p class="m-0 text-center text-white">© 2017 <a href="https://www.baidu.com">百度</a></p>
+    </div>
+
+    <script src="../../static/js/jquery-3.1.1.min.js" th:src="@{/js/jquery-3.1.1.min.js}"></script>
+    <script src="../../static/js/bootstrap.min.js" th:src="@{/js/bootstrap.min.js}"></script>
+
+</footer>
 
 </body>
 </html>
